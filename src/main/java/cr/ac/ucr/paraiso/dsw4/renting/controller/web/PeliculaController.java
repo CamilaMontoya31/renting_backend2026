@@ -1,6 +1,7 @@
 package cr.ac.ucr.paraiso.dsw4.renting.controller.web;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +13,12 @@ import cr.ac.ucr.paraiso.dsw4.renting.business.PeliculaBusiness;
 @Controller
 public class PeliculaController {
 
-    private PeliculaBusiness peliculaBusiness;
- 
+    private final PeliculaBusiness peliculaBusiness;
+
+    public PeliculaController(PeliculaBusiness peliculaBusiness) {
+        this.peliculaBusiness = peliculaBusiness;
+    }
+
     @RequestMapping(value = "/findMovies", method = RequestMethod.GET )
     public String iniciar(Model model){
         return "findMovies";

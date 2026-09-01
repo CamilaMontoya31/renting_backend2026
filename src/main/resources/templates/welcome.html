@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="ISO-8859-1">
-        <title>RENTING APP</title>
-    </head>
-    <body>
-         <h1>Bienvenido a mi página de ejemplo</h1>
-    <p>Este es el contenido de tu página.</p>
-        Bienvenidos y bienvenidas!
-        <div id="main">
-      <h1>class selector</h1>
-        <p>The p element without a class.</p>
-        <p class="note">The p element with the class
-           <code>note</code></p>
-        
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Renting App</title>
+    <link rel="stylesheet" th:href="@{/css/style_welcome.css}">
+</head>
+
+<body>
+
+    <div class="hero">
+
+        <div class="card">
+
+            <h1>🎬 RENTING APP</h1>
+
+            <p class="subtitle">
+                Sistema de mantenimiento y consulta de películas
+            </p>
+
+            <p>
+                Bienvenido(a) a la plataforma de gestión de películas.
+                Aquí podrás buscar, administrar y visualizar la información
+                de las películas registradas en el sistema.
+            </p>
+
+            <div class="buttons">
+                /findMovies
+                    Ver Películas
+                </a>
+            </div>
+
         </div>
-    </body>
+
+    </div>
+
+</body>
+
 </html>
