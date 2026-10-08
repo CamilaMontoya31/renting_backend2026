@@ -4,21 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
-
-import cr.ac.ucr.paraiso.dsw4.renting.business.PeliculaBusiness;
-
-import cr.ac.ucr.paraiso.dsw4.renting.domain.Pelicula;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import cr.ac.ucr.paraiso.dsw4.renting.business.PeliculaBusiness;
+import cr.ac.ucr.paraiso.dsw4.renting.domain.Pelicula;
 
 @RestController
 @RequestMapping(value = "/peliculas")
-@CrossOrigin(origins= "http://localhost:8084")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PeliculaRestController {
 
     @Autowired
@@ -31,7 +28,11 @@ public class PeliculaRestController {
         if (peliculas.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
+        // Imprime en la consola de Eclipse/IntelliJ/VSCode
+        System.out.println("Parámetro título recibido: '" + titulo + "'");
+        System.out.println("Parámetro género recibido: '" + genero + "'");
         return ResponseEntity.ok(peliculas); //:)
     }
     
 }
+

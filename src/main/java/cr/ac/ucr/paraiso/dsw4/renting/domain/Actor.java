@@ -1,5 +1,9 @@
 package cr.ac.ucr.paraiso.dsw4.renting.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class Actor {
     private int actorId;
     private String nombreActor;
