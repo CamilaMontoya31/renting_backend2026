@@ -4,5 +4,15 @@ GET {{baseUrl}}/peliculas?titulo=Clueless&genero=Drama //estos son los parametro
 Accept: application/json
 Content-Type: application/json
 
+#Create a movie
+POST {{baseUrl}}/peliculas
+Accept: application/json
+Content-Type: application/json
 
+{
+  "titulo": "The Matrix",
+  "genero": "Sci-Fi",
+  "anio": 1999,
+  "descripcion": "A computer hacker learns about the true nature of his reality and his role in the war against its controllers."
+}
  

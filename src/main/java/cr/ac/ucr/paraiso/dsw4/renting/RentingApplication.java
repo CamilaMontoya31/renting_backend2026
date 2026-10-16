@@ -3,7 +3,7 @@ package cr.ac.ucr.paraiso.dsw4.renting;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "cr.ac.ucr.paraiso.dsw4")
 public class RentingApplication {
 
 	public static void main(String[] args) {

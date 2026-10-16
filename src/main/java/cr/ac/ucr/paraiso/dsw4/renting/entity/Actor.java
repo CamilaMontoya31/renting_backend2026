@@ -1,4 +1,4 @@
-package cr.ac.ucr.paraiso.dsw4.entity;
+package cr.ac.ucr.paraiso.dsw4.renting.entity;
 
 import jakarta.persistence.*;
 
