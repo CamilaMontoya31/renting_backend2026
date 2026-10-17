@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:8084/renting
+@baseUrl = http://localhost:8085/renting
 ### Search movies by title or genre
 GET {{baseUrl}}/peliculas?titulo=Clueless&genero=Drama //estos son los parametros que llegan del front end
 Accept: application/json

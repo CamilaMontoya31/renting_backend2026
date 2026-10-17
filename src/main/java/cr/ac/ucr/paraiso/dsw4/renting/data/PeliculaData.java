@@ -2,15 +2,17 @@ package cr.ac.ucr.paraiso.dsw4.renting.data;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.dao.DataAccessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.SqlOutParameter;
+import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
@@ -18,9 +20,6 @@ import cr.ac.ucr.paraiso.dsw4.renting.domain.Actor;
 import cr.ac.ucr.paraiso.dsw4.renting.domain.Genero;
 import cr.ac.ucr.paraiso.dsw4.renting.domain.Pelicula;
 import jakarta.transaction.Transactional;
-import org.springframework.jdbc.core.SqlOutParameter;
-import org.springframework.jdbc.core.SqlParameter;
-import java.sql.Types;
 
 /* 
 @Repository
@@ -140,8 +139,9 @@ public class PeliculaData {
     public Pelicula save(Pelicula pelicula) throws SQLException{
         //
             SimpleJdbcCall simpleJdbcCallPelicula = new SimpleJdbcCall(jdbcTemplate).
-                    withCatalogName("dbo").
-                    withProcedureName("InsertPelicula").withoutProcedureColumnMetaDataAccess().
+                    //withCatalogName("dbo").
+                    withSchemaName("dbo"). // cambio a esquema dbo
+                    withProcedureName("Pelicula_Insert").withoutProcedureColumnMetaDataAccess().
                     declareParameters(new SqlOutParameter("@pelicula_id", Types.INTEGER)).
                     declareParameters(new SqlParameter("@titulo", Types.VARCHAR)).
                     declareParameters(new SqlParameter("@subtitulada", Types.BIT)).
@@ -151,8 +151,8 @@ public class PeliculaData {
             pelicula.setPeliculaId(Integer.parseInt(outParameters.get("@pelicula_id").toString()));
            
             SimpleJdbcCall simpleJdbcCallPeliculaActor = new SimpleJdbcCall(jdbcTemplate).
-                    withCatalogName("dbo").
-                    withProcedureName("InsertPeliculaActor").withoutProcedureColumnMetaDataAccess().
+                    withSchemaName("dbo"). //cambio a esquema dbo
+                    withProcedureName("PeliculaActor_Insert").withoutProcedureColumnMetaDataAccess().
                     declareParameters(new SqlParameter("@pelicula_id", Types.INTEGER)).
                     declareParameters(new SqlParameter("@actor_id", Types.INTEGER));
             for(Actor actor:pelicula.getActores())
